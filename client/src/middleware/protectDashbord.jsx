@@ -1,7 +1,7 @@
 import React from 'react'
 
 const protectDashbord = () => {
-  return (
+  return (  
     <div>protectDashbord</div>
   )
 }
