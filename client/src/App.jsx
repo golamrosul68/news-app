@@ -2,18 +2,31 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import MainLayout from "./dashboard/layout/MainLayout";
 import Adminindex from "./dashboard/pages/Adminindex";
 import Login from "./dashboard/pages/Login";
+import ProtectDashboard from "./middleware/ProtectDashboard";
+import ProtectRole from "./middleware/ProtectRole";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        {/* Root */}
+        <Route path="/" element={<Navigate to="/dashboard/admin" replace />} />
 
+        {/* Login */}
         <Route path="/login" element={<Login />} />
 
-        <Route path="/dashboard" element={<MainLayout />}>
-          <Route index element={<Navigate to="/dashboard/admin" replace />} />
-          <Route path="admin" element={<Adminindex />} />
+        {/* Protected Dashboard */}
+        <Route element={<ProtectDashboard />}>
+          <Route path="/dashboard" element={<MainLayout />}>
+            <Route index element={<Navigate to="/dashbord/admin" />} />
+
+             <Route index element={<Navigate to="/dashbord/unable-access" />} />
+
+            {/* Admin Only */}
+            <Route element={<ProtectRole role='admin' />}>
+              <Route path="admin" element={<Adminindex />} />
+            </Route>
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,26 +1,34 @@
-import React from "react";
+import { FiSearch } from "react-icons/fi";
 
 const Header = () => {
   return (
-    <div className="flex items-center justify-between">
-      <input
-        type="text"
-        placeholder="Search..."
-        className="px-3 py-2 rounded-md outline-none border border-gray-300 focus:border-green-500 h-10"
-      />
+    <div className="flex items-center justify-between bg-white px-6 py-4 rounded-lg shadow">
+      {/* Search */}
+      <div className="relative w-[380px]">
+        <FiSearch
+          size={18}
+          className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+        />
 
-      <div className="mr-4">
-        <div className="flex gap-x-2">
-<div className="flex flex-col items-end justify-center">
+        <input
+          type="text"
+          placeholder="Search news, writers..."
+          className="w-full h-11 pl-10 pr-4 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+        />
+      </div>
 
-  <span className="text-gray-700 font-medium">Golam Rosul</span>
-  <span className="text-gray-500 text-sm">Admin</span>
-
-
-</div>
-
-<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile" className="w-10 h-10 rounded-full" />
+      {/* Profile */}
+      <div className="flex items-center gap-3">
+        <div className="text-right">
+          <h2 className="font-semibold text-gray-800">Golam Rosul</h2>
+          <p className="text-sm text-gray-500">Admin</p>
         </div>
+
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+          alt="Profile"
+          className="w-11 h-11 rounded-full border-2 border-indigo-500"
+        />
       </div>
     </div>
   );

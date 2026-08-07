@@ -7,14 +7,13 @@ const MainLayout = () => {
     <div className="min-h-screen bg-slate-100">
       <Sidebar />
 
-<div className="ml-64 p-4">
+      <div className="ml-64">
+        <Header />
 
-  <Header/>
-</div>
-
-
-       <Outlet />
-     
+        <div className="p-4">
+          <Outlet />
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,9 +1,16 @@
-import React from 'react'
+import { Navigate, Outlet } from "react-router-dom";
 
-const protectRole = () => {
-  return (
-    <div>protectRole</div>
-  )
-}
+const ProtectRole = ({role}) => {
+  const userInfo = {
+    name: "badhon",
+    role: "admin",
+  };
 
-export default protectRole
+  if (userInfo && userInfo.role === role) {
+    return <Outlet />;
+  }
+
+  return <Navigate to="/unable-access"  />;
+};
+
+export default ProtectRole;
