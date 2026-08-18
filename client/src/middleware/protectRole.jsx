@@ -6,11 +6,11 @@ const ProtectRole = ({role}) => {
     role: "admin",
   };
 
-  if (userInfo && userInfo.role === role) {
+  if (userInfo.role === role) {
     return <Outlet />;
   }
 
-  return <Navigate to="/unable-access"  />;
+  return <Navigate to="/dashboard/unable-access" />;
 };
 
 export default ProtectRole;
