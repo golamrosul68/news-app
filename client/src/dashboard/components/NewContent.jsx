@@ -81,6 +81,33 @@ const NewContent = () => {
           </tbody>
         </table>
       </div>
+
+
+<div className="flex items-center justify-end px-10 gap-x-3 text-slate-600">
+  
+
+<div className="flex items-center justify-between gap-x-3">
+
+<p className="px-4 py-3 font-semibold text-sm">news per page </p>
+
+ <select
+                id="category"
+                name="category"
+                className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+              >
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+               
+              </select>
+
+</div>
+
+  
+</div>
+
+
     </div>
   );
 };
