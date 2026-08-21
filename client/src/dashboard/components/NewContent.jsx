@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaEye, FaTrash } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+
 
 const NewContent = () => {
   return (
@@ -102,6 +104,20 @@ const NewContent = () => {
                
               </select>
 
+</div>
+
+
+
+<p className="px-6 py-3 font-semibold text-sm">
+
+6/22 - of 5
+
+</p>
+
+<div className="flex items-center justify-between gap-x-3">
+  <IoIosArrowBack className="text-lg cursor-pointer hover:text-blue-500" />
+    
+  <IoIosArrowForward className="text-lg cursor-pointer hover:text-blue-500" />
 </div>
 
   
