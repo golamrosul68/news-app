@@ -9,6 +9,7 @@ import Unable from "./dashboard/pages/Unable";
 import AddWriter from "./dashboard/pages/AddWriter";
 import Writers from "./dashboard/pages/Writers";
 import News from "./dashboard/pages/News";
+import Profile from "./dashboard/pages/Profile";
 
 function App() {
   return (
@@ -30,6 +31,17 @@ function App() {
 
             {/* News */}
             <Route path="news" element={<News />} />
+
+
+            {/* profile */}
+
+
+            <Route path="profile" element={<Profile />} />
+
+
+
+
+
 
             {/* Unable Access */}
             <Route
