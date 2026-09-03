@@ -9,7 +9,7 @@ import Unable from "./dashboard/pages/Unable";
 import AddWriter from "./dashboard/pages/AddWriter";
 import Writers from "./dashboard/pages/Writers";
 import News from "./dashboard/pages/News";
-import Profile from "./dashboard/pages/Profile";
+import Profile from "./dashboard/pages/profile";
 
 function App() {
   return (
