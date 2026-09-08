@@ -1,11 +1,16 @@
+
 import { Link, useLocation } from "react-router-dom";
 import { AiOutlineDashboard, AiOutlinePlus } from "react-icons/ai";
 import { ImProfile } from "react-icons/im";
-import { BiNews } from "react-icons/bi";
 import { FiUsers } from "react-icons/fi";
+import { FaPlus } from "react-icons/fa";
 
 const Sidebar = () => {
   const { pathname } = useLocation();
+
+  const userInfo = {
+    role: "writer", // "admin" or "writer"
+  };
 
   return (
     <div className="fixed top-0 left-0 w-64 h-screen bg-gray-800 text-white">
@@ -22,62 +27,88 @@ const Sidebar = () => {
 
       {/* Menu */}
       <ul className="px-3 mt-3 flex flex-col gap-y-2 font-medium">
-        <li>
-          <Link
-            to="/dashboard/admin"
-            className={`px-3 py-2 w-full rounded-sm flex items-center gap-x-2 ${
-              pathname === "/dashboard/admin"
-                ? "bg-indigo-500 text-white"
-                : "bg-white text-[#4040f6]"
-            } hover:bg-indigo-500 hover:text-white hover:shadow-lg hover:shadow-indigo-500/20`}
-          >
-            <AiOutlineDashboard size={20} />
-            <span>Dashboard</span>
-          </Link>
-        </li>
+        {userInfo.role === "admin" ? (
+          <>
+            {/* Admin Dashboard */}
+            <li>
+              <Link
+                to="/dashboard/admin"
+                className={`px-3 py-2 w-full rounded-sm flex items-center gap-x-2 ${
+                  pathname === "/dashboard/admin"
+                    ? "bg-indigo-500 text-white"
+                    : "bg-white text-[#4040f6]"
+                } hover:bg-indigo-500 hover:text-white hover:shadow-lg hover:shadow-indigo-500/20`}
+              >
+                <AiOutlineDashboard size={20} />
+                <span>Dashboard</span>
+              </Link>
+            </li>
 
-        <li>
-          <Link
-            to="/dashboard/news"
-            className={`px-3 py-2 w-full rounded-sm flex items-center gap-x-2 ${
-              pathname === "/dashboard/news"
-                ? "bg-indigo-500 text-white"
-                : "bg-white text-[#4040f6]"
-            } hover:bg-indigo-500 hover:text-white hover:shadow-lg hover:shadow-indigo-500/20`}
-          >
-            <BiNews size={20} />
-            <span>News</span>
-          </Link>
-        </li>
+            {/* Add Writer */}
+            <li>
+              <Link
+                to="/dashboard/add-writer"
+                className={`px-3 py-2 w-full rounded-sm flex items-center gap-x-2 ${
+                  pathname === "/dashboard/add-writer"
+                    ? "bg-indigo-500 text-white"
+                    : "bg-white text-[#4040f6]"
+                } hover:bg-indigo-500 hover:text-white hover:shadow-lg hover:shadow-indigo-500/20`}
+              >
+                <AiOutlinePlus size={20} />
+                <span>Add Writer</span>
+              </Link>
+            </li>
 
-        <li>
-          <Link
-            to="/dashboard/add-writer"
-            className={`px-3 py-2 w-full rounded-sm flex items-center gap-x-2 ${
-              pathname === "/dashboard/add-writer"
-                ? "bg-indigo-500 text-white"
-                : "bg-white text-[#4040f6]"
-            } hover:bg-indigo-500 hover:text-white hover:shadow-lg hover:shadow-indigo-500/20`}
-          >
-            <AiOutlinePlus size={20} />
-            <span>Add Writer</span>
-          </Link>
-        </li>
+            {/* Writers */}
+            <li>
+              <Link
+                to="/dashboard/writers"
+                className={`px-3 py-2 w-full rounded-sm flex items-center gap-x-2 ${
+                  pathname === "/dashboard/writers"
+                    ? "bg-indigo-500 text-white"
+                    : "bg-white text-[#4040f6]"
+                } hover:bg-indigo-500 hover:text-white hover:shadow-lg hover:shadow-indigo-500/20`}
+              >
+                <FiUsers size={20} />
+                <span>Writer</span>
+              </Link>
+            </li>
+          </>
+        ) : (
+          <>
+            {/* Writer Dashboard */}
+            <li>
+              <Link
+                to="/dashboard/writer"
+                className={`px-3 py-2 w-full rounded-sm flex items-center gap-x-2 ${
+                  pathname === "/dashboard/writer"
+                    ? "bg-indigo-500 text-white"
+                    : "bg-white text-[#4040f6]"
+                } hover:bg-indigo-500 hover:text-white hover:shadow-lg hover:shadow-indigo-500/20`}
+              >
+                <AiOutlineDashboard size={20} />
+                <span>Dashboard</span>
+              </Link>
+            </li>
 
-        <li>
-          <Link
-            to="/dashboard/writer"
-            className={`px-3 py-2 w-full rounded-sm flex items-center gap-x-2 ${
-              pathname === "/dashboard/writer"
-                ? "bg-indigo-500 text-white"
-                : "bg-white text-[#4040f6]"
-            } hover:bg-indigo-500 hover:text-white hover:shadow-lg hover:shadow-indigo-500/20`}
-          >
-            <FiUsers size={20} />
-            <span>Writer</span>
-          </Link>
-        </li>
+            {/* Add News */}
+            <li>
+              <Link
+                to="/dashboard/news/create"
+                className={`px-3 py-2 w-full rounded-sm flex items-center gap-x-2 ${
+                  pathname === "/dashboard/news/create"
+                    ? "bg-indigo-500 text-white"
+                    : "bg-white text-[#4040f6]"
+                } hover:bg-indigo-500 hover:text-white hover:shadow-lg hover:shadow-indigo-500/20`}
+              >
+                <FaPlus size={20} />
+                <span>Add News</span>
+              </Link>
+            </li>
+          </>
+        )}
 
+        {/* Profile */}
         <li>
           <Link
             to="/dashboard/profile"
@@ -97,3 +128,4 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+

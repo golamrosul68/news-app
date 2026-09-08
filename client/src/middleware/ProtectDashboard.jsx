@@ -1,16 +1,19 @@
+
 import { Navigate, Outlet } from "react-router-dom";
 
 const ProtectDashboard = () => {
   const userInfo = {
     name: "badhon",
-    role: "admin",
+    role: "writer",
   };
 
-  if (userInfo && userInfo.role === "admin") {
+  // User login করা আছে কিনা check করবে
+  if (userInfo) {
     return <Outlet />;
   }
 
-  return <Navigate to="/login" replace />;
+  return <Navigate to="/login"/>;
 };
 
 export default ProtectDashboard;
+

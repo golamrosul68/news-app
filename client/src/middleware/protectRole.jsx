@@ -1,16 +1,19 @@
+
 import { Navigate, Outlet } from "react-router-dom";
 
-const ProtectRole = ({role}) => {
+const ProtectRole = ({ role }) => {
   const userInfo = {
     name: "badhon",
-    role: "admin",
+    role: "writer",
   };
 
-  if (userInfo.role === role) {
+  // User-এর role এবং required role একই হলে page দেখাবে
+  if (userInfo && userInfo.role === role) {
     return <Outlet />;
   }
 
-  return <Navigate to="/dashboard/unable-access" />;
+  return <Navigate to="/dashboard/unable-access"/>;
 };
 
 export default ProtectRole;
+
