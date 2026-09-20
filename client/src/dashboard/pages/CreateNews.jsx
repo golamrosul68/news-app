@@ -1,21 +1,27 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
+
 const CreateNews = () => {
   return (
-   <div className=" bg-white rounded-md p">
-   <div className="flex justify-between items-center mb-4">
-    <h2 className="text-2xl font-semibold"> Add News</h2>
-    <Link to="/dashboard/news" className="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-600 transition duration-300">
-      Back to News
-    </Link>
+    <div className="bg-white rounded-md">
+      <div className="flex items-center justify-between px-4 py-2 border-b border-gray-300">
+        <h2 className="text-lg font-semibold">Create News</h2>
+        <Link
+          className="px-3 py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600"
+          to="/dashboard/news"
+        >
+          Back to News
+        </Link>
+      </div>
+
+<div className="p-4">
+
+  
+</div>
 
 
+    </div>
+  );
+};
 
-   </div>
-
-   
-   </div>
-  )
-}
-
-export default CreateNews
+export default CreateNews;
