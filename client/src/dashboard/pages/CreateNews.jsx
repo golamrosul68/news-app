@@ -16,7 +16,18 @@ const CreateNews = () => {
 
 <div className="p-4">
 
-  
+  <form>
+
+
+    <div className=" flex flex-col gap-y-2">
+
+<label classname= 'text-md font-medium text-gray-600' htmlFor="email">Email</label>
+<input type="email"  placeholder="Enter your email" name='email' classname='px-3  py-2 rounded-md outline-0 border border-gray-300 focus:border-green-500 h-10' id='email'></input>
+     
+    </div>
+
+
+  </form>
 </div>
 
 
