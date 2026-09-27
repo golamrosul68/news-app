@@ -1,158 +1,83 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
+import { MdCloudUpload } from "react-icons/md";
 
 const CreateNews = () => {
   return (
-    <div className="bg-white rounded-md shadow-sm">
-
-      {/* ================= HEADER ================= */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-gray-300">
-        <h2 className="text-lg font-semibold text-gray-700">
-          Create News
-        </h2>
-
+    <div classname="bg-white rounded-md ">
+      <div className="flex justify-between p-4">
+        <h2 className="text-2xl font-bold">News</h2>
         <Link
+          className="bg-blue-500 text-white px-4 py-2 rounded-sm hover:bg-blue-600"
           to="/dashboard/news"
-          className="px-4 py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600"
         >
-          Back to News
+          News
         </Link>
       </div>
 
-
-      {/* ================= FORM ================= */}
-      <div className="p-5">
-
+      <div className="p-4">
         <form>
-
-          {/* ================= TITLE ================= */}
-          <div className="flex flex-col gap-y-2 mb-5">
+          <div className="flex flex-col gap-y-2 mb-6">
             <label
               htmlFor="title"
-              className="text-sm font-medium text-gray-600"
+              className="text-sm font-medium text-gray-700"
             >
-              News Title
+              Title
             </label>
 
             <input
               type="text"
               id="title"
               name="title"
-              placeholder="Enter news title"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md outline-none focus:border-indigo-500"
+              placeholder="Enter title"
+              className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
             />
           </div>
 
+<div className="flex flex-col gap-y-2 mb-6">
 
-          {/* ================= CATEGORY ================= */}
-          <div className="flex flex-col gap-y-2 mb-5">
+
+   <div>
             <label
-              htmlFor="category"
-              className="text-sm font-medium text-gray-600"
+              htmlFor="img"
+              className="w-full h-[180px] rounded-md text-[#404040] gap-2 justify-center items-center cursor-pointer flex flex-col border-2 border-dashed border-gray-400"
             >
-              Category
+              <div className="flex justify-center items-center flex-col gap-y-2">
+  
+                <span className="text-2xl text-gray-400">
+                  <MdCloudUpload />
+                </span>
+  
+                <span className="text-xs text-gray-400 text-center">
+                  Upload your profile picture
+                </span>
+  
+              </div>
             </label>
-
-            <select
-              id="category"
-              name="category"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md outline-none focus:border-indigo-500"
-            >
-              <option value="">
-                Select Category
-              </option>
-
-              <option value="politics">
-                Politics
-              </option>
-
-              <option value="sports">
-                Sports
-              </option>
-
-              <option value="technology">
-                Technology
-              </option>
-
-              <option value="business">
-                Business
-              </option>
-
-              <option value="entertainment">
-                Entertainment
-              </option>
-
-              <option value="international">
-                International
-              </option>
-            </select>
-          </div>
-
-
-          {/* ================= IMAGE ================= */}
-          <div className="flex flex-col gap-y-2 mb-5">
-            <label
-              htmlFor="image"
-              className="text-sm font-medium text-gray-600"
-            >
-              News Image
-            </label>
-
+  
             <input
               type="file"
-              id="image"
-              name="image"
+              id="img"
               accept="image/*"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md outline-none"
+              className="hidden"
             />
           </div>
 
 
-          {/* ================= DESCRIPTION ================= */}
-          <div className="flex flex-col gap-y-2 mb-5">
-            <label
-              htmlFor="description"
-              className="text-sm font-medium text-gray-600"
-            >
-              News Description
-            </label>
 
-            <textarea
-              id="description"
-              name="description"
-              rows="8"
-              placeholder="Write your news description..."
-              className="w-full px-3 py-2 border border-gray-300 rounded-md outline-none resize-none focus:border-indigo-500"
-            ></textarea>
-          </div>
+</div>
 
 
-          {/* ================= BUTTON ================= */}
-          <div className="flex items-center gap-x-3">
+<div className="flex flex-col gap-y-2 mb-6">
 
-            <button
-              type="submit"
-              className="px-5 py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600"
-            >
-              Publish News
-            </button>
 
-            <Link
-              to="/dashboard/news"
-              className="px-5 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600"
-            >
-              Cancel
-            </Link>
+</div>
 
-          </div>
 
         </form>
-
       </div>
     </div>
   );
 };
 
-export default CreateNews;
-
+export default CreateNews; 

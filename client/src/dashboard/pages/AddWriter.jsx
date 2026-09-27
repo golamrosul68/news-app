@@ -20,7 +20,6 @@ const AddWriter = () => {
       <div className="p-4">
         <form>
           <div className="grid grid-cols-2 gap-x-8 gap-y-4 mb-3">
-            
             {/* Name */}
             <div className="flex flex-col gap-y-2">
               <label
