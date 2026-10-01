@@ -3,8 +3,10 @@ import React, { useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { MdCloudUpload } from "react-icons/md";
 import JoditEditor from "jodit-react";
+import Galler from "../components/Galler";
 
 const CreateNews = () => {
+  const [show, setShow] = useState(false);
 
   const editor = useRef(null);
 
@@ -23,7 +25,6 @@ const CreateNews = () => {
     <div className="bg-white rounded-md">
 
       {/* Header */}
-
       <div className="flex justify-between p-4 border-b">
 
         <h2 className="text-2xl font-bold">
@@ -45,7 +46,6 @@ const CreateNews = () => {
         <form>
 
           {/* Title */}
-
           <div className="flex flex-col gap-y-2 mb-6">
 
             <label
@@ -67,7 +67,6 @@ const CreateNews = () => {
 
 
           {/* Image Upload */}
-
           <div className="flex flex-col gap-y-2 mb-6">
 
             <label
@@ -102,7 +101,6 @@ const CreateNews = () => {
 
 
           {/* Description */}
-
           <div className="flex flex-col gap-y-2 mb-6">
 
             <div className="flex items-center gap-x-2">
@@ -111,15 +109,20 @@ const CreateNews = () => {
                 Description
               </h2>
 
-              <span className="text-2xl text-gray-400">
+
+              {/* Gallery Button */}
+              <button
+                type="button"
+                onClick={() => setShow(true)}
+                className="text-2xl text-gray-400 hover:text-indigo-500"
+              >
                 <MdCloudUpload />
-              </span>
+              </button>
 
             </div>
 
 
             {/* Jodit Editor */}
-
             <div>
 
               <JoditEditor
@@ -135,8 +138,7 @@ const CreateNews = () => {
           </div>
 
 
-          {/* Button */}
-
+          {/* Create News Button */}
           <div className="flex justify-end">
 
             <button
@@ -149,6 +151,15 @@ const CreateNews = () => {
           </div>
 
         </form>
+
+
+        {/* Gallery */}
+       {show && (
+  <Galler
+    setShow={setShow}
+    images={[]}
+  />
+)}
 
       </div>
 
