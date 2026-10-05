@@ -2,11 +2,12 @@
   "name": "news-app",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "client": "npm run dev --prefix client",
-    "build": "npm run build --prefix client",
-    "dev": "npm run client"
-  },
+ "scripts": {
+  "client": "npm run dev --prefix client",
+  "server": "nodemon server.js",
+  "build": "npm run build --prefix client",
+  "dev": "concurrently \"npm run server\" \"npm run client\""
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
