@@ -1,11 +1,14 @@
 const express = require('express')
 const app = express()
 const dotenv = require('dotenv')
+const bodyParser = require('body-parser')
 
 const cors = require('cors')
 const db_connect = require('./utils/db')
 
 dotenv.config()
+
+app.use(bodyParser.json())
 
 
 if (process.env.mode === "production") {

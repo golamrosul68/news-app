@@ -10,24 +10,27 @@ const authSchema = new Schema({
         required: true,
         unique: true},
 
-        password: {
+    password: {
         type: String,
-        required: true}
-        role: {
+        select: false,
+        required: true},
+
+    role: {
         type: String,
         required: true
-    }
-    image : {
+    },
 
+    image: {
         type: String,
-       default: "https://res.cloudinary.com/dxjv7gq3f/image/upload/v1690590910/blank-profile-picture-973460_1280_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1.png"
-    }
+        default: "https://res.cloudinary.com/dxjv7gq3f/image/upload/v1690590910/blank-profile-picture-973460_1280_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1.png"
+    },
+
     category: {
         type: String,
         required: true,
     }
 
 
-} ,{timestamps: true}) 
+}, {timestamps: true}) 
 
 module.exports = model("authors", authSchema)
