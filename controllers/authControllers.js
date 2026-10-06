@@ -1,4 +1,6 @@
 const authModel = require("../models/authModel");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 
 
@@ -17,9 +19,28 @@ if (!password){
 try{
 
 
-    const user = await authModel.findOne({ email });
+    const user = await authModel.findOne({ email }).select("+password")
+    if (user) {
+        const match = await bcrypt.compare(password, user.password)
+  
+if (match) {
 
-    console.log(user)
+    const object = {
+        id: user._id,
+        name: user.name,
+        
+        role: user.role,
+        category: user.category
+    }
+    const token = jwt.sign(object, process.env.JWT_SECRET, { expiresIn: "1h" });
+
+
+} else {
+    return res.status(401).json({ message: "Invalid password" });
+}
+    } else {
+        return res.status(404).json({ message: "User not found" });
+    }
 
 } catch (error) {
     console.log(error)
